@@ -93,7 +93,6 @@ body {
    
 }
 .lang, .voice {
-    padding-left: 47px;
     text-align: left;
     font-size:  13px;
     color: #4ac4ff;
@@ -102,6 +101,7 @@ body {
 .lang {
  font-size: 17px;
  font-weight: 100;
+ padding-left: 47px;
 }
 
 
@@ -109,6 +109,7 @@ body {
     margin-bottom: 0px;
     font-size: 17px;
     font-weight: 100;
+    padding-left: 24px;
    
 }
 .script {
@@ -119,6 +120,7 @@ body {
     text-align: left;
     font-size: 17px;
     font-weight: 100;
+    column-width: 500px;
 } 
 .lang-select {
     display: inline;
@@ -150,10 +152,10 @@ body {
 
 .form-control {
     border-radius: 6px;
-
    border: 2px solid white;
    margin-bottom: 30px;
    width: 700px;
+   height: 250px;
    margin-top: 10px;
    margin-left: 47px;
    margin-right: 40px;
@@ -166,6 +168,10 @@ body {
     margin-left: 35px;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
             
 
 
