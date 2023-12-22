@@ -117,10 +117,9 @@ body {
     padding-left: 47px;
     margin-bottom: 20px;
     display: inline;
-    text-align: left;
     font-size: 17px;
     font-weight: 100;
-    column-width: 500px;
+    
 } 
 .lang-select {
     display: inline;
@@ -142,9 +141,8 @@ body {
     border-left: none;
     border-right: none;
     border-bottom: solid;
-    border-color: black;
+    border-color: gray;
     border-radius: 6px;
-
     margin-left: 20px;
     width: 600px;
     margin-bottom: 25px;
@@ -155,7 +153,7 @@ body {
    border: 2px solid white;
    margin-bottom: 30px;
    width: 700px;
-   height: 250px;
+   height: 200px;
    margin-top: 10px;
    margin-left: 47px;
    margin-right: 40px;
@@ -168,11 +166,7 @@ body {
     margin-left: 35px;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-            
+      
 
 
 
