@@ -16,7 +16,45 @@ def generate_and_play_audio(request):
         # Check if the entered voice is valid
         voice_mapping = {
             "Adam": elevenlabs.generate,
-            # ... (other voices)
+            "Antoni": elevenlabs.generate,
+            "Arnold": elevenlabs.generate,
+            "Callum": elevenlabs.generate,
+            "Charlie": elevenlabs.generate,
+            "Charlotte": elevenlabs.generate,
+            "Clyde": elevenlabs.generate,
+            "Daniel": elevenlabs.generate,
+            "Dave": elevenlabs.generate,
+            "Domi": elevenlabs.generate,
+            "Dorothy": elevenlabs.generate,
+            "Ell": elevenlabs.generate,
+            "Emil": elevenlabs.generate,
+            "Ethan": elevenlabs.generate,
+            "Fin:": elevenlabs.generate,
+            "Freya": elevenlabs.generate,
+            "Gigi": elevenlabs.generate,
+            "Giovanni": elevenlabs.generate,
+            "Glinda": elevenlabs.generate,
+            "Grace": elevenlabs.generate,
+            "Harry": elevenlabs.generate,
+            "James": elevenlabs.generate,
+            "Jeremy": elevenlabs.generate,
+            "Joseph": elevenlabs.generate,
+            "Josh": elevenlabs.generate,
+            "Liam": elevenlabs.generate,
+            "Matilda": elevenlabs.generate,
+            "Matthew": elevenlabs.generate,
+            "Michael": elevenlabs.generate,
+            "Mimi": elevenlabs.generate,
+            "Nicole": elevenlabs.generate,
+            "Patrick": elevenlabs.generate,
+            "Rachel": elevenlabs.generate,
+            "Ryan": elevenlabs.generate,
+            "Sam": elevenlabs.generate,
+            "Serena": elevenlabs.generate,
+            "Thomas": elevenlabs.generate,
+            
+
+            
         }
 
         if voice_input not in voice_mapping:
