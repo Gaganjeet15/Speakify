@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css\style.css' %}">
+  <title>SPEAKIFY</title>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img class="navbar-logo" src=" {% static "images\SPEAKIFY7722.gif" %} " alt="hello"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Pricing</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</head>
+
+<body>
+   
+
+  <div class="container2">
+
+
+    <div class="box2">
+
+      <span class="text-ai">AI Text to Speech</span>
+      <span class="natural-reader">NaturalReader</span>
+      <span class="paragraph">The #1 text to speech solution for</span>
+      <span class="paragraph">personal, commercial, and</span>
+      <span class="paragraph">educational use</span>
+    </div>
+    <div class="img2">
+
+      <img src="{% static 'images\2121222.png' %}" alt="images" width="600" height="550">
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="box">
+      <h3 class="h3">Text to audio
+      </h3>
+      <p class="para">
+        Type or paste the narration script below, or click Upload File to load the script from a document. You <br> can
+        upload plain text (.txt), MS Word (.docx and .doc), MS Excel (.xlsx and .xls), PDF, EPUB, RTF, <br> Open
+        Document (.odt, .ods) and subtitle (.srt, .vtt) files. <br>
+        (Looking for a quick example? Download this file.)
+      </p>
+      <p class="lang"> Language: <select class="lang-select">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+
+      </p>
+         <form method="post" action="{% url 'generate_and_play_audio' %}">
+            {% csrf_token %}
+            
+            <span class="voice"><label class="voice" for="voice_input">Voice:</label>
+            <select class="voice-select" name="voice_input" required>
+                <option value="Adam">Adam</option>
+                <option value="Antoni">Antoni</option>
+                <!-- Add other voice options as needed -->
+                </select> </span>
+            
+             
+            <label class="script" for="text_input">Enter the text:</label>
+            <input class="form-control" type="text" name="text_input" required>
+
+
+                <button class="btn-17">
+                    <span class="text-container">
+                      <span class="text">UPLOAD FILE</span>
+                    </span>
+                  </button>
+
+
+            <button class = "btn-17" type="submit">Generate and Play Audio</button>
+      
+        </form> 
+       
+
+     
+
+{% comment %} 
+      <p class="script"> Script:
+        <label for="exampleFormControlTextarea1" class="form-label"></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="7">Paste your script here</textarea> {% endcomment %}
+
+
+
+        <!-- Button 1 -->
+        {% comment %} <button class="btn-17">
+          <span class="text-container">
+            <span class="text">UPLOAD FILE</span>
+          </span>
+        </button> 
+
+        <!-- Button 2 -->
+         <button class="btn-17">
+          <span class="text-container">
+            <span class="text">CREATE YOUR AUDIO</span>
+          </span>
+        </button>  {% endcomment %}
+
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
