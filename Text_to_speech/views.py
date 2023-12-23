@@ -1,11 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import elevenlabs
-elevenlabs.set_api_key("c874cb0113399e1d4d26bd0a0947a761")
 # Create your views here.
 
 def todolist(request):
     return render(request, 'code.html', {})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def generate_and_play_audio(request):
