@@ -1,27 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import elevenlabs
+elevenlabs.set_api_key("c874cb0113399e1d4d26bd0a0947a761")
 # Create your views here.
 
 def todolist(request):
     return render(request, 'code.html', {})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def generate_and_play_audio(request):
@@ -67,10 +51,7 @@ def generate_and_play_audio(request):
             "Ryan": elevenlabs.generate,
             "Sam": elevenlabs.generate,
             "Serena": elevenlabs.generate,
-            "Thomas": elevenlabs.generate,
-            
-
-            
+            "Thomas": elevenlabs.generate,  
         }
 
         if voice_input not in voice_mapping:
@@ -80,7 +61,10 @@ def generate_and_play_audio(request):
         generate_function = voice_mapping[voice_input]
         audio = generate_function(text=text_input, voice=voice_input)
         elevenlabs.play(audio)
+        elevenlabs.save(audio, "audio.mp3")
  
-        return HttpResponse("Audio generated and played successfully.")
+        return render(request, 'generate_audio.html')
     else:
-        return render(request, 'Text_to_speech/generate_audio.html')
+        return render(request, 'Text_to_speech/code.html')
+    
+       
