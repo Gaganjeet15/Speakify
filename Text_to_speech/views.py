@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import elevenlabs
-elevenlabs.set_api_key("c874cb0113399e1d4d26bd0a0947a761")
+import PyPDF2
+elevenlabs.set_api_key("1a6a66463837d5b2e3bd37631ce8412e")
 # Create your views here.
 
 def speakify(request):
@@ -81,3 +82,29 @@ def generate_and_play_audio(request):
 
     else:
         return render(request, 'Text_to_speech/code.html')
+    
+    
+    
+def extract_text(pdf_file):
+    with open(pdf_file, 'rb') as file:
+        pdf_reader = PyPDF2.PdfFileReader(file)
+        text = ''
+        for page_num in range(pdf_reader.numPages):
+            text += pdf_reader.getPage(page_num).extractText()
+    return text
+
+def upload_and_extract(request):
+    if request.method == 'POST' and 'pdf_file' in request.FILES:
+        pdf_file = request.FILES['pdf_file']
+        
+        # Check if the uploaded file is a PDF
+        if pdf_file.name.endswith('.pdf'):
+            # Extract text from the PDF
+            pdf_text = extract_text(pdf_file)
+
+            # Render the result on the same page
+            return render(request, 'code.html', {'pdf_text': pdf_text})
+        else:
+            return render(request, 'code.html', {'error': 'Please upload a PDF file.'})
+
+    return render(request, 'code.html')

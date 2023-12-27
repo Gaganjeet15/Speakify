@@ -262,7 +262,7 @@ body {
     font-weight: 900;
     line-height: 1.5;
     margin: 0;
-    vertical-align: middle;
+    
     margin-left: 40px;
 
     /* -webkit-mask-image: -webkit-radial-gradient(#000, #fff); */
@@ -411,7 +411,7 @@ body {
     right: 0;
     bottom: 0;
     box-shadow: 0px 0 0 0 #4ac4ff;
-    transition: all 3s ease;
+    transition: all 2s ease;
    }
    
 .batman:hover:after {
@@ -432,7 +432,7 @@ body {
     text-align: center;
     transform: translate(-50%,-50%);
     color: #4ac4ff;
-    transition: all 3s ease;
+    transition: all 2s ease;
    }
    
    .batman:hover span {
@@ -449,7 +449,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: all 3s ease;
+    transition: all 2s ease;
    }
    
    .batman:hover:before {
