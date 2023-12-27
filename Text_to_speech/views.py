@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import elevenlabs
 import PyPDF2
-elevenlabs.set_api_key("1a6a66463837d5b2e3bd37631ce8412e")
 # Create your views here.
 
 def speakify(request):
