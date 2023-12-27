@@ -6,6 +6,7 @@ from Text_to_speech import views
 urlpatterns = [
     path('', views.speakify, name='speakify'),
     path('generate_audio/', generate_and_play_audio, name='generate_and_play_audio'),
+
    
 
 ]

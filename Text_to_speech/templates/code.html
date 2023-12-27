@@ -66,6 +66,7 @@
       </p>
          <form method="post" action="{% url 'generate_and_play_audio' %}">
             {% csrf_token %}
+           
             <span class="voice"><label class="voice" for="voice_input">Voice:</label>
             <select class="voice-select" name="voice_input" required>
                 
@@ -123,7 +124,9 @@
             <source src="{% static 'output.mp3' %}" type="audio/mpeg">
              
              
-
+          
+              
+           
             <br>
             <div class="input-div">
               <input class="input" name="file" type="file">
