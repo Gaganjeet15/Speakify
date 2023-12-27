@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import elevenlabs
 elevenlabs.set_api_key("c874cb0113399e1d4d26bd0a0947a761")
 # Create your views here.
 
-def todolist(request):
+def speakify(request):
     return render(request, 'code.html', {})
 
 
@@ -54,6 +54,17 @@ def generate_and_play_audio(request):
             "Thomas": elevenlabs.generate,  
         }
 
+    #     if voice_input not in voice_mapping:
+    #         return HttpResponse(f"Voice '{voice_input}' not recognized.")
+
+    #     # Get the corresponding function and generate audio
+    #     generate_function = voice_mapping[voice_input]
+    #     audio = generate_function(text=text_input, voice=voice_input)
+    #     elevenlabs.play(audio)
+    #     elevenlabs.save(audio, "output.mp3")  
+    #     return render(request, 'generate_audio.html' )
+    # else:
+    #     return render(request, 'Text_to_speech/code.html')
         if voice_input not in voice_mapping:
             return HttpResponse(f"Voice '{voice_input}' not recognized.")
 
@@ -61,10 +72,12 @@ def generate_and_play_audio(request):
         generate_function = voice_mapping[voice_input]
         audio = generate_function(text=text_input, voice=voice_input)
         elevenlabs.play(audio)
-        elevenlabs.save(audio, "audio.mp3")
- 
-        return render(request, 'generate_audio.html')
+        elevenlabs.save(audio, "output.mp3")
+
+        # Set the Content-Disposition header to force download prompt
+        response = HttpResponse(audio, content_type='audio/mpeg')
+        response['Content-Disposition'] = 'attachment; filename="output.mp3"'
+        return response
+
     else:
         return render(request, 'Text_to_speech/code.html')
-    
-       
