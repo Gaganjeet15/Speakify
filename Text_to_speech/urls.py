@@ -6,8 +6,8 @@ from .views import extract_text
  
 urlpatterns = [
     path('', views.speakify, name='speakify'),
-    path('generate_audio/', generate_and_play_audio, name='generate_and_play_audio'),
-    path('extract-text/', extract_text, name='extract_text'),
+    path('generate_audio/', views.generate_and_play_audio, name='generate_and_play_audio'),
+    path('extract-text/', views.extract_text, name='extract_text'),
 
    
 
