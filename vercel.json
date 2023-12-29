@@ -7,7 +7,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "Text_to_speech/wsgi.py"
+            "dest": "/speakify"
         }
     ]
 }
