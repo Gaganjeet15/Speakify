@@ -1,0 +1,1 @@
+web gunicorn Text_to_speech.wsgi:apllication --log-file -

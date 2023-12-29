@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import elevenlabs
+elevenlabs.set_api_key("6f74a30fefe9236f5b558cba1c98811e")
 from django.http import JsonResponse
 from PyPDF2 import PdfReader
 
