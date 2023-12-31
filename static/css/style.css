@@ -1,27 +1,33 @@
 body {
     background-color: #1a1818;
+    
 }
- .navbar-logo
-  {
-    padding-left: 60px; 
-  }
+.container-logo {
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    padding: 0 106px;
+    width: 100%;
+
+}
+
 .container2 {
     display: flex;
-    
+    justify-content: center;
+    padding: 0 50px;
     /* border: 2px solid black; */
     height: 750px;
-   width: 1400px;
-   margin: 20px;
+   width: 100%;
+ 
 }
 .box2 {
     /* border: 2px solid sienna; */
-    width: 800px;
+    width: 100%;
     margin-top: 70px;
     display: inline;
 }
 .img2 {
     display: flex;
-    padding-left: 180px;
     /* border: 2px solid yellow; */
     margin-top: 60px;
     width: 600px;
@@ -68,7 +74,7 @@ body {
     border-radius: 40px;
     padding: 10px;
    height: 850px;
-   width: 900px;
+   width: 60%;
  
    background-color: #1a1818;
 
@@ -229,8 +235,6 @@ body {
 .navbar-logo {
     height: 120px;
     width: 200px;
-    padding-left: 0px;
-    margin-left: 35px;
 }
 
       
@@ -460,4 +464,68 @@ body {
    }
    
    
-
+.action-btn {
+    display: flex;
+    align-items: center;
+}
+/* styles.css */
+.custom-button {
+   
+    gap: 0.75rem;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 600;
+    background: linear-gradient(to right, #303030, #000000);
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid #1a1818;
+    transition: transform 0.2s;
+  }
+  
+  .custom-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .custom-button:hover path {
+    fill: #808080;
+  }
+  
+  .custom-button:hover {
+    border-color: #000000;
+  }
+  
+  .custom-button:hover {
+    background: #000000;
+  }
+  
+  .button-linkedin {
+    margin-left: 50px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    animation: sway 2s infinite alternate;
+    width: 43px;
+    height: 43px;
+    align-items: center;
+    perspective: 500px;
+    transition: transform 0.5s, box-shadow 0.5s;
+  }
+  
+  .button-linkedin:hover {
+    transform: scale(1.5) rotate(-360deg) translateY(-1em);
+    box-shadow: 0 0 20px 0 rgba(29, 161, 242, 0.5);
+  }
+  
+  .icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    transition: transform 0.5s;
+  }
+  
+  .icon:hover {
+    transform: scale(8);
+    filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.9))
+  }
