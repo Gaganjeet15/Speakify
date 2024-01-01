@@ -10,7 +10,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-logo">
       <div>
-        <a class="navbar-brand" href="#"><img class="navbar-logo" src=" {% static "images\SPEAKIFY7722.gif" %} " alt="hello"></a>
+        <a class="navbar-brand" href="#"><img class="navbar-logo" src=" {% static "images\SPEAKIFY.gif" %} " alt="hello"></a>
 
       </div>
       <div class="action-btn">
@@ -70,11 +70,9 @@
       </p>
        <p class="lang"> Language: <select class="lang-select">
           <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="2">Detects automatically</option>
+          <option value="1">English</option>
         </select>
-
       </p> 
       
          <form method="post" action="{% url 'generate_and_play_audio' %}">
@@ -84,7 +82,8 @@
             <select class="voice-select" name="voice_input" required>
                 
                 <div class = "dropdown">
-                "<option value="Adam">Adam (Male)</option>
+                <option selected>Open this select menu</option>
+                <option value="Adam">Adam (Male)</option>
                 <option value="Antoni">Antoni (Male)</option>
                 <option value="Arnold">Arnold (Male)</option>
                 <option value="Callum">Callum (Male)</option>
@@ -117,27 +116,14 @@
                 <option value="Sam">Sam (Male)</option>
                 <option value="Serena">Serena (Female)</option>
                 <option value="Thomas">Thomas (Male)</option>
-               
-                </div>
-                
-               
-                <!-- Add other voice options as needed -->
-                </select> </span>
+              </div>
+              </select> </span>
             
              
             <label class="script" for="text_input">Enter the text:</label>
             <textarea class="form-control" rows="7" name="text_input" placeholder="Paste your script" required autocomplete="on">{{ extracted_text }}</textarea>
 
            
-            
-            {% comment %} <div class="input-div">
-              <input class="input" name="file" type="file">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" class="icon">
-              <polyline points="16 16 12 12 8 16"></polyline>
-              <line y2="21" x2="12" y1="12" x1="12"></line>
-              <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
-              <polyline points="16 16 12 12 8 16"></polyline>
-              <div class="input-div"> {% endcomment %}
             <button class= "batman">
              <span>PLAY NOW</span>
               </button>
@@ -145,8 +131,10 @@
 
             <button class = "btn-17" type="submit">
               <span class="text-container">
-                <span class="text">CREATE AUDIO</button></span>
+                <span class="text">CREATE AUDIO</span>
+                </span>
               </span>
+            </button>
         </form> 
         <form enctype="multipart/form-data" action="{% url 'extract_text' %}" method="post">
           {% csrf_token %}
@@ -162,11 +150,6 @@
             <span class="text-container"><span class="text">EXTRACT</button>
           </button>
       </form>
-      <br>
-      <br>
-      {% comment %} <textarea style="width: 300px; height: 150px;" id="resultText" placeholder="Your PDF text will appear here...">{{ extracted_text }}</textarea> {% endcomment %}
-
-
     </div>
   </div>
   

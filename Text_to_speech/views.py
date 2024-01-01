@@ -67,8 +67,7 @@ def generate_and_play_audio(request):
         return response
 
     else:
-        return render(request, 'Text_to_speech/code.html')
-    
+        return render(request, 'Text_to_speech/code.html') 
     
 def extract_text(request):
     if request.method == 'POST' and request.FILES.get('pdfFile'):
