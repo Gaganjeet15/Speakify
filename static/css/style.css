@@ -74,7 +74,7 @@ body {
     border: 3px solid #4ac4ff;
     border-radius: 40px;
     padding: 10px;
-   height: 850px;
+   height: 950px;
    width: 60%;
 
    
@@ -85,11 +85,12 @@ body {
 .box {
     display: inline;
     /* border: 2px solid rgb(244, 22, 22); */
-    width: 800px;
+    width: 90%;
     justify-content: center;
      
 }
 .h3 {
+    font-weight: 1000;
     color: #4ac4ff;
    text-align: center;
    padding-bottom:10px ;
@@ -111,7 +112,7 @@ body {
 }
 .lang {
  font-size: 17px;
- font-weight: 100;
+ font-weight: 700;
  padding-left: 47px;
 }
 
@@ -119,20 +120,22 @@ body {
 .voice {
     margin-bottom: 0px;
     font-size: 17px;
-    font-weight: 100;
+    font-weight: 700;
     padding-left: 24px;
+
    
 }
 .script {
     color: #4ac4ff;
     padding-left: 47px;
     margin-bottom: 20px;
-    display: inline;
+    display: block;
     font-size: 17px;
-    font-weight: 100;
+    font-weight: 700;
     
 } 
 .lang-select {
+    
     display: inline;
     border-top: none;
     border-left: none;
