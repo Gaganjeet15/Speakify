@@ -60,6 +60,21 @@ def generate_and_play_audio(request):
         generate_function = voice_mapping[voice_input]
         audio = generate_function(text=text_input, voice=voice_input, model="eleven_multilingual_v2")  # Pass the model parameter here
         elevenlabs.play(audio)
+        
+        if not generate_function:
+            return HttpResponse(f"Error: Unable to find generate function for voice '{voice_input}'.")
+
+        try:
+            audio = generate_function(text=text_input, voice=voice_input, model="eleven_multilingual_v2")  # Pass the model parameter here
+        except Exception as e:
+            return HttpResponse(f"Error generating audio: {str(e)}")
+
+        if not audio or not isinstance(audio, bytes):
+            return HttpResponse("Error: Invalid audio data.")
+
+        # Check if the generated audio is in the expected MP3 format
+        if not audio.startswith(b'\xFF\xFB'):
+            return HttpResponse("Error: Invalid audio format. Expected MP3 data.")
 
         # Set the Content-Disposition header to force download prompt
         response = HttpResponse(audio, content_type='audio/mpeg')
@@ -67,22 +82,22 @@ def generate_and_play_audio(request):
         return response
 
     else:
-        return render(request, 'Text_to_speech/code.html') 
+        return render(request, 'Text_to_speech/code.html')
     
 def extract_text(request):
-        if request.method == 'POST' and request.FILES.get('pdfFile'):
-            pdf_file = request.FILES['pdfFile']
+    if request.method == 'POST' and request.FILES.get('pdfFile'):
+        pdf_file = request.FILES['pdfFile']
 
-            try:
-                pdf_reader = PdfReader(pdf_file)
-                extracted_text = ""
+        try:
+            pdf_reader = PdfReader(pdf_file)
+            extracted_text = ""
 
-                for page_num in range(len(pdf_reader.pages)):
-                    page = pdf_reader.pages[page_num]
-                    extracted_text += page.extract_text()
+            for page_num in range(len(pdf_reader.pages)):
+                page = pdf_reader.pages[page_num]
+                extracted_text += page.extract_text()
 
-                return render(request, 'code.html', {'extracted_text': extracted_text})
-            except Exception as e:
-                return JsonResponse({'error': str(e)}, status=500)
+            return render(request, 'code.html', {'extracted_text': extracted_text})
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
 
-        return JsonResponse({'error': 'Invalid request'}, status=400)
+    return JsonResponse({'error': 'Invalid request'}, status=400)
