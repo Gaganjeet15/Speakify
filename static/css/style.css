@@ -1,3 +1,5 @@
+
+
 body {
     background-color: #000000;
     
@@ -84,7 +86,7 @@ body {
 }
 .box {
     display: inline;
-    /* border: 2px solid rgb(244, 22, 22); */
+    /* border: 2px solid rgb(244, 22, 22);   */
     width: 90%;
     justify-content: center;
      
@@ -537,3 +539,49 @@ body {
   }
 
 
+  @media only screen and (max-width: 1000px) and (min-width: 400px) {
+.form-control {
+
+   width: 400px;
+   height: 150px;
+
+}
+
+
+.voice-select {
+    margin-left: 51px;
+    width: 400px;
+}
+.lang-select{
+    margin-left: 6px;
+    width: 400px;
+}
+.para {
+    text-align: center;
+    color: white;
+    font-size: 10px;
+   
+}
+.btn-17{
+    margin-left: 0px;
+}
+.text-ai{
+    font-size: 38px;
+    display: block;
+}
+.box2{
+    width: 45%;
+    display: inline-block;
+}
+.paragraph{
+    font-size: 23px;
+}
+.img2{
+    margin-top: 307px;
+    height: 561px;
+    padding-left: 62px;
+}
+.container {
+    margin-top: 188px;
+}
+}
