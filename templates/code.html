@@ -73,14 +73,14 @@
         Type or paste the narration script below, or click Upload File to load the script from a document.<br> You can upload PDF,  With just a click, watch as your PDFs come to life in the VOICES of your choice.<br>
         But we don't stop there. Our cutting-edge technology not only converts PDFs to text but also provides you the freedom to customize and enhance the content.
       </p>
-       <p class="lang"> Language: <select class="lang-select">
+       {% comment %} <p class="lang"> Language: <select class="lang-select">
           <option selected>Open this select menu</option>
           <option value="2">Detects automatically</option>
           <option value="1">English</option>
         </select>
-      </p> 
+      </p>  {% endcomment %}
       
-         <form method="post" action="{% url 'generate_and_play_audio' %}">
+         {% comment %} <form method="post" action="{% url 'generate_and_play_audio' %}">
             {% csrf_token %}
            
             <span class="voice"><label class="voice" for="voice_input">Voice:</label>
@@ -142,7 +142,63 @@
                 </span>
               </span>
             </button>
-        </form> 
+        </form>  {% endcomment %}
+        <form id="myForm" method="post" action="{% url 'generate_and_play_audio' %}">
+          {% csrf_token %}
+          <span class="voice"><label class="voice" for="voice_input">Voice:</label>
+          <select class="voice-select" name="voice_input" required>
+              <!-- Your voice options here -->
+              <div class = "dropdown">
+                <option selected>Open this select menu</option>
+                <option value="Adam">Adam (Male)</option>
+                <option value="Antoni">Antoni (Male)</option>
+                <option value="Arnold">Arnold (Male)</option>
+                <option value="Callum">Callum (Male)</option>
+                <option value="Charlie">Charlie (Male)</option>
+                <option value="Charlotte">Charlotte (Female)</option>
+                <option value="Clyde">Clyde (Female)</option>
+                <option value="Daniel">Daniel (Male)</option>
+                <option value="Dave">Dave (Male)</option>
+                <option value="Domi">Domi (Female)</option>
+                <option value="Dorothy">Dorothy (Female)</option>
+                <option value="Ethan">Ethan (Male)</option>
+                <option value="Freya">Freya (Female)</option>
+                <option value="Gigi">Gigi (Female)</option>
+                <option value="Giovanni">Giovanni (Male)</option>
+                <option value="Glinda">Glinda (Female)</option>
+                <option value="Grace">Grace (Female)</option>
+                <option value="Harry">Harry (Male)</option>
+                <option value="James">James (Male)</option>
+                <option value="Jeremy">Jeremy (Male)</option>
+                <option value="Joseph">Joseph (Male)</option>
+                <option value="Josh">Josh (Male)</option>
+                <option value="Liam">Liam (Male)</option>
+                <option value="Matilda">Matilda (Male)</option>
+                <option value="Matthew">Matthew (Male)</option>
+                <option value="Michael">Michael (Male)</option>
+                <option value="Mimi">Mimi (Female)</option>
+                <option value="Nicole">Nicole (Male)</option>
+                <option value="Patrick">Patrick (Male)</option>
+                <option value="Rachel">Rachel (Female)</option>
+                <option value="Sam">Sam (Male)</option>
+                <option value="Serena">Serena (Female)</option>
+                <option value="Thomas">Thomas (Male)</option>
+              </div>
+          </select>
+          </span>
+          <label class="script" for="text_input">Enter the text:</label>
+          <textarea class="form-control" rows="7" name="text_input" placeholder="Paste your script" required autocomplete="on">{{ extracted_text }}</textarea>
+          <input type="hidden" id="action" name="action" value="">
+          <button class="batman" type="submit" onclick="document.getElementById('action').value='play';">
+              <span>PLAY NOW</span>
+          </button>
+          <button class="btn-17" type="submit" onclick="document.getElementById('action').value='download';">
+              <span class="text-container">
+                  <span class="text">CREATE AUDIO</span>
+              </span>
+          </button>
+      </form>
+      
         <form enctype="multipart/form-data" action="{% url 'extract_text' %}" method="post">
           {% csrf_token %}
           <div class="input-div">

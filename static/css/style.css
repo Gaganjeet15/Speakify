@@ -57,7 +57,6 @@ body {
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 234px;
-
 }
 .paragraph {
     color: gray;
@@ -79,7 +78,7 @@ body {
 box-shadow: 0px 0px 47px 15px rgba(74,195,255,0.5);
     border-radius: 40px;
     padding: 10px;
-   height: 950px;
+   height: 850px;
    width: 60%;
 
    
