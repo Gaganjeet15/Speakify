@@ -1,3 +1,5 @@
+
+
 body {
     background-color: #000000;
     
@@ -6,7 +8,7 @@ body {
 .container-logo {
     display: flex;
     justify-content: space-between;
-    /* border: 2px solid black; */
+    /* border: 2px solid green; */
     padding: 0 106px;
     width: 100%;
 
@@ -16,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 0 50px;
-    /* border: 2px solid black; */
+    /* border: 2px solid red; */
     height: 750px;
    width: 100%;
  
@@ -55,7 +57,6 @@ body {
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 234px;
-
 }
 .paragraph {
     color: gray;
@@ -72,9 +73,12 @@ body {
     display: flex;
     justify-content: center;
     border: 3px solid #4ac4ff;
+    -webkit-box-shadow:0px 0px 47px 15px rgba(74,195,255,0.5);
+-moz-box-shadow: 0px 0px 47px 15px rgba(74,195,255,0.5);
+box-shadow: 0px 0px 47px 15px rgba(74,195,255,0.5);
     border-radius: 40px;
     padding: 10px;
-   height: 950px;
+   height: 850px;
    width: 60%;
 
    
@@ -84,7 +88,7 @@ body {
 }
 .box {
     display: inline;
-    /* border: 2px solid rgb(244, 22, 22); */
+    /* border: 2px solid rgb(244, 22, 22);   */
     width: 90%;
     justify-content: center;
      
@@ -171,6 +175,7 @@ body {
     color:  #4ac4ff;
     font-size: 2rem;
     cursor: pointer;
+    filter: none;
   }
   
   .input {
@@ -525,14 +530,152 @@ body {
     box-shadow: 0 0 20px 0 rgba(29, 161, 242, 0.5);
   }
   
-  .icon {
+  .icon2 {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
     transition: transform 0.5s;
   }
   
-  .icon:hover {
+  .icon2:hover {
     transform: scale(8);
     filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.9))
   }
 
+
+  @media only screen and (max-width: 1000px) and (min-width: 400px) {
+.form-control {
+
+   width: 400px;
+   height: 150px;
+
+}
+
+
+.voice-select {
+    margin-left: 51px;
+    width: 400px;
+}
+.lang-select{
+    margin-left: 6px;
+    width: 400px;
+}
+.para {
+    text-align: center;
+    color: white;
+    font-size: 10px;
+   
+}
+.btn-17{
+    margin-left: 0px;
+}
+.text-ai{
+    font-size: 38px;
+    display: block;
+}
+.box2{
+    width: 45%;
+    display: inline-block;
+}
+.paragraph{
+    font-size: 21px;
+}
+.img2{
+    margin-top: 307px;
+    height: 561px;
+    padding-left: 62px;
+}
+.container {
+    margin-top: 188px;
+}
+}
+
+/* WELCOME TO CONTAINER 3 */
+
+.container3 {
+    display: flex;
+    /* justify-content: center;  */
+    /* border: solid white; */
+    height: 800px;
+    width: 100%;
+
+    
+    /* background-color: black; */
+}
+
+/* WELCOME TO CONTAINER 3 */
+.box3, .box4 {
+    height: 100%;
+    width: 45%;
+    /* border: solid red; */
+
+}
+.essay-img {
+    height: 574px;
+    border-radius: 30px;
+}
+.card {
+    margin-top: 10px;
+    margin-left: 100px;
+    position: relative;
+    width: 500px;
+    height: 654px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: end; */
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 509px;
+    height: 664px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, aqua 0%, #4ac4ff);
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, aqua 0%, #4ac4ff);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+  }
+  
+  .heading {
+    padding: 0px;
+    text-align: center;
+    font-size: 35px;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #4ac4ff;
+  }
+  
+  .card p:not(.heading) {
+    font-size: 14px;
+  }
+  
+  .card p:last-child {
+    color: #e81cff;
+    font-weight: 600;
+  }
+  
+  .card:hover::after {
+    filter: blur(30px);
+  }
+  
+  .card:hover::before {
+    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+  }
 
