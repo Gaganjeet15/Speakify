@@ -86,11 +86,6 @@ def generate_and_play_audio(request):
             return HttpResponse("Error: Invalid action.")
     else:
         return render(request, 'Text_to_speech/generate_audio.html')
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> a8fb9a6f41075d3755ffa5ac6ead96b33f5aaf8e
 # Extract text from a PDF file
 def extract_text(request):
     if request.method == 'POST' and request.FILES.get('pdfFile'):
