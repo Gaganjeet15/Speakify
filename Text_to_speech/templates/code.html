@@ -71,11 +71,15 @@
           
     </div>
     <div class="box4">
-        <div class="card">
-            <p class="heading"> INTO THIS </p>
-            <video class="essay-img" controls src= "{% static "images\box3-voice12.mp4" %}" ></video>
-           
-          </div>
+      <div class="card">
+          <p class="heading"> INTO THIS <span class="card-audio-text">(audio only)</span></p>
+         
+          <video class="essay-img" controls src="{% static "images\box3-voice12.mp4" %}"></video>
+         
+      </div>
+  </div>
+  
+  
           
     </div>
 </div>
@@ -94,7 +98,6 @@
           <select class="voice-select" name="voice_input" required>
               <!-- Your voice options here -->
               <div class = "dropdown">
-                <option selected>Open this select menu</option>
                 <option value="Adam">Adam (Male)</option>
                 <option value="Antoni">Antoni (Male)</option>
                 <option value="Arnold">Arnold (Male)</option>
@@ -119,7 +122,6 @@
                 <option value="Josh">Josh (Male)</option>
                 <option value="Liam">Liam (Male)</option>
                 <option value="Matilda">Matilda (Male)</option>
-                <option value="Matthew">Matthew (Male)</option>
                 <option value="Michael">Michael (Male)</option>
                 <option value="Mimi">Mimi (Female)</option>
                 <option value="Nicole">Nicole (Male)</option>
@@ -130,20 +132,86 @@
                 <option value="Thomas">Thomas (Male)</option>
               </div>
           </select>
+          <button type="button" id="playSampleButton">Play</button>
           </span>
           <label class="script" for="text_input">Enter the text:</label>
           <textarea class="form-control" rows="7" name="text_input" placeholder="Paste your script" required autocomplete="on">{{ extracted_text }}</textarea>
           <input type="hidden" id="action" name="action" value="">
-          <button class="batman" type="submit" onclick="document.getElementById('action').value='play';">
+          {% comment %} <button class="batman" type="submit" onclick="document.getElementById('action').value='play';">
               <span>PLAY NOW</span>
-          </button>
+          </button> {% endcomment %}
           <button class="btn-17" type="submit" onclick="document.getElementById('action').value='download';">
               <span class="text-container">
-                  <span class="text">CREATE AUDIO</span>
+                  <span class="text">DOWNLOAD AUDIO</span>
               </span>
           </button>
       </form>
-      
+      <audio id="audioPlayer" controls style="display: none;">
+        <source src="" type="audio/mpeg" id="audioSource">
+        Your browser does not support the audio element.
+      </audio>
+    
+      <script>
+        // Define the audio samples for each voice
+       
+        const voiceSamples = {
+          Adam: "{% static 'audio/voice_preview_premade_Adam.mp3' %}",
+          Antoni: "{% static 'audio/voice_preview_premade_Antoni.mp3' %}",
+          Arnold: "{% static 'audio/voice_preview_premade_Arnold.mp3' %}",
+          Callum: "{% static 'audio/voice_preview_premade_Callum.mp3' %}",
+          Charlie: "{% static 'audio/voice_preview_premade_Charlie.mp3' %}",
+          Charlotte: "{% static 'audio/voice_preview_premade_Charlotte.mp3' %}",
+          Clyde: "{% static 'audio/voice_preview_premade_Clyde.mp3' %}",
+          Daniel: "{% static 'audio/voice_preview_premade_Daniel.mp3' %}",
+          Dave: "{% static 'audio/voice_preview_premade_Dave.mp3' %}",
+          Domi: "{% static 'audio/voice_preview_premade_Domi.mp3' %}",
+          Dorothy: "{% static 'audio/voice_preview_premade_Dorothy.mp3' %}",
+          Ethan: "{% static 'audio/voice_preview_premade_Ethan.mp3' %}",
+          Fin: "{% static 'audio/voice_preview_premade_Fin.mp3' %}",
+          Freya: "{% static 'audio/voice_preview_premade_Freya.mp3' %}",
+          George: "{% static 'audio/voice_preview_premade_George.mp3' %}",
+          Gigi: "{% static 'audio/voice_preview_premade_Gigi.mp3' %}",
+          Giovanni: "{% static 'audio/voice_preview_premade_Giovanni.mp3' %}",
+          Glinda: "{% static 'audio/voice_preview_premade_Glinda.mp3' %}",
+          Grace: "{% static 'audio/voice_preview_premade_Grace.mp3' %}",
+          Harry: "{% static 'audio/voice_preview_premade_Harry.mp3' %}",
+          James: "{% static 'audio/voice_preview_premade_James.mp3' %}",
+          Jeremy: "{% static 'audio/voice_preview_premade_Jeremy.mp3' %}",
+          Jessie: "{% static 'audio/voice_preview_premade_Jessie.mp3' %}",
+          Joseph: "{% static 'audio/voice_preview_premade_Joseph.mp3' %}",
+          Josh: "{% static 'audio/voice_preview_premade_Josh.mp3' %}",
+          Liam: "{% static 'audio/voice_preview_premade_Liam.mp3' %}",
+          Lily: "{% static 'audio/voice_preview_premade_Lily.mp3' %}",
+          Matilda: "{% static 'audio/voice_preview_premade_Matilda.mp3' %}",
+          Michael: "{% static 'audio/voice_preview_premade_Michael.mp3' %}",
+          Mimi: "{% static 'audio/voice_preview_premade_Mimi.mp3' %}",
+          Nicole: "{% static 'audio/voice_preview_premade_Nicole.mp3' %}",
+          Patrick: "{% static 'audio/voice_preview_premade_Patrick.mp3' %}",
+          Paul: "{% static 'audio/voice_preview_premade_Paul.mp3' %}",
+          Rachel: "{% static 'audio/voice_preview_premade_Rachel.mp3' %}",
+          Sam: "{% static 'audio/voice_preview_premade_Sam.mp3' %}",
+          Sarah: "{% static 'audio/voice_preview_premade_Sarah.mp3' %}",
+          Serena: "{% static 'audio/voice_preview_premade_Serena.mp3' %}",
+          Thomas: "{% static 'audio/voice_preview_premade_Thomas.mp3' %}"
+        };
+        
+          
+     
+        
+    
+        document.getElementById('playSampleButton').addEventListener('click', function() {
+          const selectedVoice = document.querySelector('.voice-select').value;
+          const samplePath = voiceSamples[selectedVoice];
+          if (samplePath) {
+            const audioSource = document.getElementById('audioSource');
+            audioSource.src = samplePath;
+            document.getElementById('audioPlayer').load();
+            document.getElementById('audioPlayer').play();
+          } else {
+            alert('Sample not available for selected voice.');
+          }
+        });
+      </script>
         <form enctype="multipart/form-data" action="{% url 'extract_text' %}" method="post">
           {% csrf_token %}
           <div class="input-div">
@@ -158,6 +226,7 @@
             <span class="text-container"><span class="text">EXTRACT</button>
           </button>
       </form>
+      
     </div>
   </div>
 
