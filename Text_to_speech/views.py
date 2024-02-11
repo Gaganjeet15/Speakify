@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import elevenlabs
 from django.http import JsonResponse
 from PyPDF2 import PdfReader
-elevenlabs.set_api_key('6f74a30fefe9236f5b558cba1c98811e')
+elevenlabs.set_api_key('Enter your api key here')
 
 
 # Create your views here.
